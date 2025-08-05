@@ -1,320 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PhoneLookup - Reverse Phone Number Search</title>
+    <link rel="shortcut icon" type="x-icon" href="https://github.com/Satyamurthi/mbw-Photos/blob/main/Logo/sai%20school%20logo%20png.png?raw=true"> 
+    <title>Sri Sathya Sai Baba Pre-University College</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
-        }
-        .result-card {
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .result-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        .input-highlight {
-            border-left: 4px solid #4F46E5;
-        }
-        .glow-effect {
-            animation: glow 2s infinite alternate;
-        }
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 5px rgba(79, 70, 229, 0.5);
-            }
-            to {
-                box-shadow: 0 0 20px rgba(79, 70, 229, 0.8);
-            }
-        }
-    </style>
+    <script src="script.js" defer></script>
 </head>
-<body class="bg-gray-50 min-h-screen">
-    <!-- Navigation -->
-    <nav class="gradient-bg text-white shadow-lg">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <img src="https://placehold.co/40x40" alt="PhoneLookup logo - a magnifying glass over a phone icon" class="mr-2 rounded-full">
-                    <span class="font-bold text-xl">PhoneLookup</span>
+<body class="bg-white">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center justify-center py-2">
+                <div class="flex justify-between items-center w-full">
+                    <div class="flex items-center space-x-4">
+                        <div class="md:hidden">
+                            <button id="mobile-menu-toggle" class="text-gray-700 focus:outline-none">
+                                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="index.html">
+                            <img src="https://github.com/Satyamurthi/mbw-Photos/blob/main/Logo/sai%20baba%20Logo.png?raw=true" class="h-[50px] md:h-[70px]">
+                        </a>
+                    </div>
+                    <div class="text-center text-sm sm:text-base md:text-xl font-semibold text-gray-800">
+                        <span class="highlight-orange">Sri Sathya Sai Baba PU College Mysuru</span>
+                    </div>
+                    <div class="flex items-center">
+                        <a href="About.html">
+                            <img src="https://github.com/Satyamurthi/mbw-Photos/blob/main/Logo/sai%20school%20logo%20png.png?raw=true" class="h-[50px] md:h-[70px]">
+                        </a>
+                    </div>
                 </div>
-                <div class="hidden md:flex space-x-6">
-                    <a href="#" class="hover:text-gray-200">Home</a>
-                    <a href="#" class="hover:text-gray-200">Privacy</a>
-                    <a href="#" class="hover:text-gray-200">About</a>
-                    <a href="#" class="hover:text-gray-200">Contact</a>
+                <div class="hidden md:flex space-x-8 items-cente">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Home</a>
+                    <a href="Academics.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Academics</a>
+                    <a href="Gallery.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Gallery</a>
+                    <a href="Campus-Life.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Campus Life</a>
+                    <a href="About.html" class="nav-link text-gray-700 hover:text-primary transition-colors">About</a>
+                    <a href="#">
+                        <button class="bg-primary text-white px-4 py-2 rounded-button hover:bg-primary/90 transition-colors">
+                            FOR ADMISSIONS
+                        </button>
+                    </a>
                 </div>
-                <button class="md:hidden" id="menu-toggle">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
             </div>
+        </div>
+        <!-- Mobile Sidebar Menu -->
+        <div id="mobile-menu" class="fixed top-0 left-0 w-72 h-full bg-gray-900 text-white z-50 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden rounded-r-2xl">
+            <div class="flex items-center justify-between p-4 border-b border-gray-700">
+                <div class="flex items-center space-x-3">
+                    <img src="https://github.com/Satyamurthi/mbw-Photos/blob/main/Logo/sai%20baba%20Logo.png?raw=true" alt="Logo" class="h-10 w-auto">
+                    <div class="text-sm font-semibold leading-tight"><span class="highlight-orange">Sri Sathya Sai Baba PU College Mysuru</span></div>
+                </div>
+                <button id="close-mobile-menu" class="text-white text-3xl font-bold">&times;</button>
+            </div>
+            <nav class="flex flex-col px-4 pt-6 space-y-4 text-base">
+                <a href="index.html" class="hover:bg-gray-800 px-3 py-2 rounded transition">🏠 Home</a>
+                <a href="Academics.html" class="hover:bg-gray-800 px-3 py-2 rounded transition">📘 Academics</a>
+                <a href="Gallery.html" class="hover:bg-gray-800 px-3 py-2 rounded transition">🖼️ Gallery</a>
+                <a href="Campus-Life.html" class="hover:bg-gray-800 px-3 py-2 rounded transition">🏫 Campus Life</a>
+                <a href="About.html" class="hover:bg-gray-800 px-3 py-2 rounded transition">ℹ️ About</a>
+            </nav>
         </div>
     </nav>
 
-    <!-- Mobile Menu (hidden by default) -->
-    <div class="md:hidden hidden" id="mobile-menu">
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-indigo-700 text-white">
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium">Home</a>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium">Privacy</a>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium">About</a>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium">Contact</a>
-        </div>
-    </div>
+    <!-- Main Content -->
+    <main class="pt-1">
+        <!-- Video Start -->     
+        <section class="relative h-[600px] flex items-center overflow-hidden">
+            <div id="video-container" class="absolute inset-0 w-full h-full -z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-transparent"></div>
+        </section>
 
-    <!-- Hero Section -->
-    <div class="container mx-auto px-4 py-16">
-        <div class="text-center">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Reverse Phone Number Lookup</h1>
-            <p class="text-xl text-gray-600 mb-8">Enter a phone number to find details about the owner and location</p>
-            
-            <!-- Search Form -->
-            <div class="max-w-2xl mx-auto">
-                <form id="searchForm" class="relative">
-                    <div class="relative">
-                        <input type="tel" 
-                               id="phoneNumber" 
-                               class="w-full p-4 pr-16 rounded-lg input-highlight focus:outline-none focus:ring-2 focus:ring-indigo-500 glow-effect" 
-                               placeholder="Enter phone number (e.g. +1 234 567 8900)" 
-                               pattern="^\+?[0-9]{1,3}[-\s]?[0-9]{3,4}[-\s]?[0-9]{3,4}[-\s]?[0-9]{3,4}$"
-                               required>
-                        <button type="submit" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors">
-                            Search
-                        </button>
-                    </div>
-                </form>
-                <p class="text-sm text-gray-500 mt-2">We respect your privacy. Only public data will be shown.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Results Section -->
-    <div class="container mx-auto px-4 pb-16">
-        <div id="resultsSection" class="hidden">
-            <div class="bg-white rounded-xl shadow-md overflow-hidden result-card">
-                <div class="bg-gray-50 px-6 py-4 border-b">
-                    <h2 class="text-xl font-semibold text-gray-800">Search Results</h2>
+        <!-- Welcome Note -->
+        <section class="about-section">
+            <div class="about-container">
+                <div class="logo">
+                    <img src="https://github.com/Satyamurthi/mbw-Photos/blob/main/Logo/sai%20school%20logo%20png.png?raw=true" alt="School Logo" />
                 </div>
-                <div class="p-6">
-                    <div id="basicInfo" class="mb-8">
-                        <div class="flex items-center mb-4">
-                            <div class="mr-4">
-                                <img src="https://placehold.co/80x80" alt="Generic profile placeholder - would show picture of person or unknown profile icon" class="rounded-full">
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-medium text-gray-800" id="resultName">John Doe</h3>
-                                <p class="text-gray-600" id="resultNumber">+1 234 567 8900</p>
-                                <p class="text-indigo-600 font-medium" id="resultType">Mobile</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
-                        <div id="locationInfo" class="bg-gray-50 p-4 rounded-lg">
-                            <h4 class="text-lg font-medium text-gray-800 mb-2">Location Information</h4>
-                            <p class="text-gray-600 mb-1"><span class="font-medium">Country:</span> <span id="resultCountry">United States</span></p>
-                            <p class="text-gray-600 mb-1"><span class="font-medium">State/Region:</span> <span id="resultRegion">California</span></p>
-                            <p class="text-gray-600"><span class="font-medium">City:</span> <span id="resultCity">San Francisco</span></p>
-                        </div>
-
-                        <div id="carrierInfo" class="bg-gray-50 p-4 rounded-lg">
-                            <h4 class="text-lg font-medium text-gray-800 mb-2">Carrier Information</h4>
-                            <p class="text-gray-600 mb-1"><span class="font-medium">Carrier:</span> <span id="resultCarrier">AT&T Mobility</span></p>
-                            <p class="text-gray-600 mb-1"><span class="font-medium">Network Type:</span> <span id="resultNetwork">4G LTE</span></p>
-                            <p class="text-gray-600"><span class="font-medium">Original:</span> <span id="resultOriginal">211-03</span></p>
-                        </div>
-                    </div>
-
-                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <div class="ml-3">
-                                <p class="text-sm text-yellow-700">
-                                    This information is provided for informational purposes only. PhoneLookup does not guarantee the accuracy of this data.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="about-text">
+                    <h4 class="section-title">ABOUT US</h4>
+                    <h1>Welcome to <span class="highlight-orange">Sri Sathya Sai School & PU College Mysuru</span></h1>
+                    <p>
+                        Our school is dedicated to fostering Education in Human Values. Today's education system often prioritizes intellectual and skill development while neglecting the cultivation of good character. We believe that true education extends beyond academics to encompass moral and spiritual growth. Our mission is to nurture students who not only excel academically but also possess compassion, humility, and a sense of service towards society. We strive to instill in our students a deep reverence for righteousness, a steadfast faith in God, and a profound love for their mothers, motherland, mother tongue, and religion. Our goal is to produce individuals who lead meaningful lives guided by principles of truth, righteousness, and service to humanity.
+                    </p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Empty State -->
-        <div id="emptyState" class="text-center py-16">
-            <img src="https://placehold.co/300x200" alt="Illustration showing a phone with a magnifying glass - waiting for search input" class="mx-auto mb-6 rounded-lg">
-            <h3 class="text-xl font-medium text-gray-800 mb-2">Enter a phone number to begin your search</h3>
-            <p class="text-gray-600">We'll search our database and public records to find information about the number.</p>
-        </div>
-    </div>
+        <!-- Additional sections go here -->
 
-    <!-- Features Section -->
-    <div class="bg-gray-100 py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold text-center text-gray-800 mb-12">Why Use PhoneLookup?</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
-                            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-medium text-gray-800">Comprehensive Database</h3>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div>
+                    <img src="https://github.com/Satyamurthi/mbw-Photos/blob/main/Logo/sai%20baba%20Logo.png?raw=true" alt="Logo" class="w-24 h-auto mb-4 block"> 
+                    <p class="text-gray-400 mb-4">Shaping tomorrow's leaders through excellence in education, research, and innovation.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/people/Sathya-Sai-Baba-Puc/pfbid02EXmmdXSUpaZJE3uH5zdoHTGTsfFPjy5RK5Z6dUJ55skrdtPwmWgYpTbHbh7RwcfZl" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="ri-facebook-fill text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="ri-twitter-fill text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="ri-instagram-fill text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="ri-linkedin-fill text-xl"></i>
+                        </a>
                     </div>
-                    <p class="text-gray-600">Our system searches multiple public databases to provide the most comprehensive results.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
-                            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-medium text-gray-800">Privacy Compliant</h3>
-                    </div>
-                    <p class="text-gray-600">We only provide information that is publicly available and respect privacy laws.</p>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="About.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="Academics.html" class="text-gray-400 hover:text-white transition-colors">Academics</a></li>
+                        <li><a href="Gallery.html" class="text-gray-400 hover:text-white transition-colors">Gallery</a></li>
+                        <li><a href="Research.html" class="text-gray-400 hover:text-white transition-colors">Campus Life</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                    </ul>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
-                            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-medium text-gray-800">Secure</h3>
-                    </div>
-                    <p class="text-gray-600">Your searches are encrypted and we don't store your personal information.</p>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="ri-map-pin-line mr-2"></i>
+                            Sri Sathya Sai Baba PU College, 46, 4th Main Rd, 3rd Block, Jayalakshmipuram, Mysuru, Karnataka 570012
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="ri-phone-line mr-2"></i>
+                            0821 2410856
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="ri-mail-line mr-2"></i>
+                            sssbpucnn0385@gmail.com
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Privacy Section -->
-    <div class="container mx-auto px-4 py-16">
-        <div class="text-center">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Our Privacy Commitment</h2>
-            <p class="text-gray-600 max-w-3xl mx-auto">
-                PhoneLookup is committed to respecting your privacy and handling personal information responsibly. We only provide information that is legally available in public records and databases. 
-                We do not display sensitive personal information and strictly comply with all applicable privacy laws and regulations.
-            </p>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="gradient-bg text-white py-8">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <img src="https://placehold.co/40x40" alt="PhoneLookup logo" class="inline-block mr-2">
-                    <span class="font-bold text-xl">PhoneLookup</span>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="hover:text-gray-200">Terms</a>
-                    <a href="#" class="hover:text-gray-200">Privacy</a>
-                    <a href="#" class="hover:text-gray-200">Contact</a>
-                </div>
-            </div>
-            <div class="mt-6 text-center text-sm text-gray-200">
-                <p>© 2023 PhoneLookup. All rights reserved.</p>
-                <p class="mt-1">This service is intended for lawful purposes only.</p>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 SSSBPUC. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
-    <!-- JavaScript -->
-    <script>
-        // Toggle mobile menu
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Form submission handler
-        document.getElementById('searchForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const phoneNumber = document.getElementById('phoneNumber').value.trim();
-            
-            if (!phoneNumber) return;
-            
-            // Simulate search - in a real app, this would call your API
-            simulateSearch(phoneNumber);
-        });
-
-        function simulateSearch(number) {
-            // Show loading state
-            document.getElementById('emptyState').classList.add('hidden');
-            document.getElementById('resultsSection').classList.add('opacity-0');
-            
-            // Simulate API delay
-            setTimeout(() => {
-                // These would come from your API in a real implementation
-                const fakeData = {
-                    name: number.includes('123') ? 'John Doe' : 'Unknown Caller',
-                    number: number,
-                    type: Math.random() > 0.5 ? 'Mobile' : 'Landline',
-                    country: 'United States',
-                    region: number.includes('234') ? 'California' : 'Unknown',
-                    city: number.includes('567') ? 'San Francisco' : 'Unknown',
-                    carrier: 'AT&T Mobility',
-                    network: '4G LTE',
-                    original: '211-03'
-                };
-                
-                // Update UI with results
-                document.getElementById('resultName').textContent = fakeData.name;
-                document.getElementById('resultNumber').textContent = fakeData.number;
-                document.getElementById('resultType').textContent = fakeData.type;
-                document.getElementById('resultCountry').textContent = fakeData.country;
-                document.getElementById('resultRegion').textContent = fakeData.region;
-                document.getElementById('resultCity').textContent = fakeData.city;
-                document.getElementById('resultCarrier').textContent = fakeData.carrier;
-                document.getElementById('resultNetwork').textContent = fakeData.network;
-                document.getElementById('resultOriginal').textContent = fakeData.original;
-                
-                // Show results
-                document.getElementById('resultsSection').classList.remove('hidden');
-                setTimeout(() => {
-                    document.getElementById('resultsSection').classList.remove('opacity-0');
-                }, 10);
-            }, 1500);
-        }
-
-        // Format phone number as user types
-        document.getElementById('phoneNumber').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            let formatted = '';
-            
-            if (value.length > 0) {
-                formatted += '+';
-            }
-            
-            if (value.length > 3) {
-                formatted += value.substring(0, 3) + ' ';
-                value = value.substring(3);
-            }
-            
-            if (value.length > 3) {
-                formatted += value.substring(0, 3) + ' ';
-                value = value.substring(3);
-            }
-            
-            if (value.length > 3) {
-                formatted += value.substring(0, 3) + ' ';
-                value = value.substring(3);
-            }
-            
-            formatted += value;
-            e.target.value = formatted.trim();
-        });
-    </script>
 </body>
 </html>
