@@ -7,67 +7,90 @@
     <title>Sri Sathya Sai Baba Pre-University College</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="js/script.js" defer></script>
+    <script src="js/script.js"></script>
 </head>
 <body class="bg-white">
     <!-- Navigation Bar -->
-    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col items-center justify-center py-2">
-                <div class="flex justify-between items-center w-full">
-                    <div class="flex items-center space-x-4">
-                        <div class="md:hidden">
-                            <button id="mobile-menu-toggle" class="text-gray-700 focus:outline-none">
-                                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                                </svg>
-                            </button>
-                        </div>
-                        <a href="index.html">
-                            <img src="https://github.com/Satyamurthi/mbw-Photos/blob/main/Logo/sai%20baba%20Logo.png?raw=true" class="h-[50px] md:h-[70px]">
-                        </a>
-                    </div>
-                    <div class="text-center text-sm sm:text-base md:text-xl font-semibold text-gray-800">
-                        <span class="highlight-orange">Sri Sathya Sai Baba PU College Mysuru</span>
-                    </div>
-                    <div class="flex items-center">
-                        <a href="About.html">
-                            <img src="https://github.com/Satyamurthi/mbw-Photos/blob/main/Logo/sai%20school%20logo%20png.png?raw=true" class="h-[50px] md:h-[70px]">
-                        </a>
-                    </div>
-                </div>
-                <div class="hidden md:flex space-x-8 items-cente">
-                    <a href="index.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Home</a>
-                    <a href="Academics.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Academics</a>
-                    <a href="Gallery.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Gallery</a>
-                    <a href="Campus-Life.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Campus Life</a>
-                    <a href="About.html" class="nav-link text-gray-700 hover:text-primary transition-colors">About</a>
-                    <a href="#">
-                        <button class="bg-primary text-white px-4 py-2 rounded-button hover:bg-primary/90 transition-colors">
-                            FOR ADMISSIONS
-                        </button>
-                    </a>
-                </div>
-            </div>
+<nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col items-center justify-center py-2">
+
+      <!-- TOP ROW: Logos + Title -->
+      <div class="flex justify-between items-center w-full">
+        <!-- LEFT: Hamburger + Left Logo -->
+        <div class="flex items-center space-x-4">
+          <!-- Hamburger (Mobile) -->
+          <div class="md:hidden">
+            <button id="mobile-menu-toggle" class="text-gray-700 focus:outline-none">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+          <!-- Left Logo -->
+          <a href="index.html">
+            <img src="https://github.com/Satyamurthi/mbw-Photos/blob/main/Logo/sai%20baba%20Logo.png?raw=true"
+                 class="h-[50px] md:h-[70px]">
+          </a>
         </div>
-        <!-- Mobile Sidebar Menu -->
-        <div id="mobile-menu" class="fixed top-0 left-0 w-72 h-full bg-gray-900 text-white z-50 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden rounded-r-2xl">
-            <div class="flex items-center justify-between p-4 border-b border-gray-700">
-                <div class="flex items-center space-x-3">
-                    <img src="https://github.com/Satyamurthi/mbw-Photos/blob/main/Logo/sai%20baba%20Logo.png?raw=true" alt="Logo" class="h-10 w-auto">
-                    <div class="text-sm font-semibold leading-tight"><span class="highlight-orange">Sri Sathya Sai Baba PU College Mysuru</span></div>
-                </div>
-                <button id="close-mobile-menu" class="text-white text-3xl font-bold">&times;</button>
-            </div>
-            <nav class="flex flex-col px-4 pt-6 space-y-4 text-base">
-                <a href="index.html" class="hover:bg-gray-800 px-3 py-2 rounded transition">🏠 Home</a>
-                <a href="Academics.html" class="hover:bg-gray-800 px-3 py-2 rounded transition">📘 Academics</a>
-                <a href="Gallery.html" class="hover:bg-gray-800 px-3 py-2 rounded transition">🖼️ Gallery</a>
-                <a href="Campus-Life.html" class="hover:bg-gray-800 px-3 py-2 rounded transition">🏫 Campus Life</a>
-                <a href="About.html" class="hover:bg-gray-800 px-3 py-2 rounded transition">ℹ️ About</a>
-            </nav>
+
+        <!-- CENTER TITLE -->
+        <div class="text-center text-sm sm:text-base md:text-xl font-semibold text-gray-800">
+          <span class="highlight-orange">Sri Sathya Sai Baba PU College Mysuru</span>
         </div>
-    </nav>
+
+        <!-- RIGHT: Logo -->
+        <div class="flex items-center">
+          <a href="About.html">
+            <img src="https://github.com/Satyamurthi/mbw-Photos/blob/main/Logo/sai%20school%20logo%20png.png?raw=true"
+                 class="h-[50px] md:h-[70px]">
+          </a>
+        </div>
+      </div>
+
+      <!-- SECOND ROW: Desktop Nav Links -->
+      <div class="hidden md:flex space-x-8 items-cente">
+        <a href="index.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Home</a>
+        <a href="Academics.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Academics</a>
+        <a href="Gallery.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Gallery</a>
+        <a href="Campus-Life.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Campus Life</a>
+        <a href="About.html" class="nav-link text-gray-700 hover:text-primary transition-colors">About</a>
+        <a href="#">
+          <button class="bg-primary text-white px-4 py-2 rounded-button hover:bg-primary/90 transition-colors">
+            FOR ADMISSIONS
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+ <!-- Mobile Sidebar Menu -->
+<div id="mobile-menu" class="fixed top-0 left-0 w-72 h-full bg-gray-900 text-white z-50 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden rounded-r-2xl">
+
+  <!-- Header: Logo + Title + Close -->
+  <div class="flex items-center justify-between p-4 border-b border-gray-700">
+    <div class="flex items-center space-x-3">
+      <!-- Logo -->
+      <img src="https://github.com/Satyamurthi/mbw-Photos/blob/main/Logo/sai%20baba%20Logo.png?raw=true"
+           alt="Logo" class="h-10 w-auto">
+      <!-- College Title -->
+      <div class="text-sm font-semibold leading-tight"><span class="highlight-orange">Sri Sathya Sai Baba PU College Mysuru</span></div>
+    </div>
+    <!-- Close Button -->
+    <button id="close-mobile-menu" class="text-white text-3xl font-bold">&times;</button>
+  </div>
+
+  <!-- Nav Links -->
+  <nav class="flex flex-col px-4 pt-6 space-y-4 text-base">
+    <a href="index.html" class="hover:bg-gray-800 px-3 py-2 rounded transition">🏠 Home</a>
+    <a href="Academics.html" class="hover:bg-gray-800 px-3 py-2 rounded transition">📘 Academics</a>
+    <a href="Gallery.html" class="hover:bg-gray-800 px-3 py-2 rounded transition">🖼️ Gallery</a>
+    <a href="Campus-Life.html" class="hover:bg-gray-800 px-3 py-2 rounded transition">🏫 Campus Life</a>
+    <a href="About.html" class="hover:bg-gray-800 px-3 py-2 rounded transition">ℹ️ About</a>
+  </nav>
+</div>
+
+</nav>
 
     <!-- Main Content -->
     <main class="pt-1">
