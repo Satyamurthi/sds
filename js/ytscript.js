@@ -2,7 +2,7 @@ let player;
 
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('video-container', {
-    videoId: 'dQw4w9WgXcQ', // Replace with your YouTube video ID
+    videoId: 'zKz4QQKx_jo', // Replace with your YouTube video ID
     playerVars: {
       autoplay: 1,
       controls: 0,
