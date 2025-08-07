@@ -3,12 +3,12 @@ const counters = document.querySelectorAll(".counter");
 counters.forEach(counter => {
   const updateCount = () => {
     const target = +counter.getAttribute("data-target");
-    const count = +counter.innerText;
-    const increment = target / 100;
+    const count = +counter.innerText.replace(/,/g, '');
+    const increment = target / 300; // slower
 
     if (count < target) {
-      counter.innerText = Math.ceil(count + increment);
-      requestAnimationFrame(updateCount);
+      counter.innerText = Math.ceil(count + increment).toLocaleString();
+      setTimeout(updateCount, 10); // control speed here
     } else {
       counter.innerText = target.toLocaleString();
     }
@@ -18,7 +18,7 @@ counters.forEach(counter => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         updateCount();
-        observer.unobserve(counter); // Run only once
+        observer.unobserve(counter);
       }
     });
   }, { threshold: 1 });
