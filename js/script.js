@@ -238,3 +238,16 @@ document.head.appendChild(tag);
 	  });
 	}
       });
+
+
+const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const closeBtn = document.getElementById('close-mobile-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  toggleBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('-translate-x-full');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    mobileMenu.classList.add('-translate-x-full');
+  });
