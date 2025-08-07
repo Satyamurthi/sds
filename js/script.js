@@ -46,33 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-    // YouTube API Script
-function onYouTubeIframeAPIReady() {
-new YT.Player('video-container', {
-    videoId: 'zKz4QQKx_jo', // Replace with your YouTube Video ID
-    playerVars: {
-	autoplay: 1,
-	mute: 1,
-	loop: 1,
-	playlist: 'zKz4QQKx_jo',
-	controls: 0,
-	showinfo: 0,          // Legacy; may not work but harmless
-	modestbranding: 1,    // Minimal branding
-	fs: 0,
-	rel: 0,
-	disablekb: 1,
-	cc_load_policy: 0,    // Prevent captions
-	iv_load_policy: 3,    // Hide annotations
-	playsinline: 1
-    },
-    events: {
-	onReady: function(event) {
-	    event.target.setPlaybackRate(2); // Max YouTube-supported speed
-	    event.target.playVideo();
-	}
-    }
-});
-}
 
 // Array of image groups for each slideshow
 const slides = {
