@@ -10,41 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     closeBtn.addEventListener('click', () => {
         mobileMenu.classList.add('-translate-x-full');
     });
-document.addEventListener("DOMContentLoaded", () => {
-    const counters = document.querySelectorAll('.stats-counter');
-    const speed = 200;
-				
-    const animateCounter = (el) => {
-      const counter = el.querySelector('div[data-target]');
-      const updateCount = () => {
-	const target = +counter.getAttribute('data-target');
-	const count = +counter.innerText;
-	const increment = target / speed;
 
-	if (count < target) {
-	  counter.innerText = Math.ceil(count + increment);
-	  setTimeout(updateCount, 15);
-	} else {
-	  counter.innerText = target.toLocaleString(); // format with commas
-	}
-      };
-      updateCount();
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-	if (entry.isIntersecting) {
-	  entry.target.classList.add('visible'); // 💡 this makes it fade in!
-	  animateCounter(entry.target); // 💡 this starts the count!
-	  observer.unobserve(entry.target); // only animate once
-	}
-      });
-    }, { threshold: 0.5 });
-
-    counters.forEach(counter => {
-      observer.observe(counter);
-    });
-  });
 
 
 // Array of image groups for each slideshow
