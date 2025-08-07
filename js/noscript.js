@@ -1,17 +1,25 @@
 const counters = document.querySelectorAll(".counter");
+const duration = 5000; // total animation time in ms
 
 counters.forEach(counter => {
   const updateCount = () => {
     const target = +counter.getAttribute("data-target");
-    const count = +counter.innerText.replace(/,/g, '');
-    const increment = target / 1000; // slower
+    const startTime = performance.now();
 
-    if (count < target) {
-      counter.innerText = Math.ceil(count + increment).toLocaleString();
-      setTimeout(updateCount, 10); // control speed here
-    } else {
-      counter.innerText = target.toLocaleString();
-    }
+    const animate = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const currentValue = Math.floor(progress * target);
+      counter.innerText = currentValue.toLocaleString();
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        counter.innerText = target.toLocaleString();
+      }
+    };
+
+    requestAnimationFrame(animate);
   };
 
   const observer = new IntersectionObserver(entries => {
