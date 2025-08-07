@@ -4,7 +4,7 @@ counters.forEach(counter => {
   const updateCount = () => {
     const target = +counter.getAttribute("data-target");
     const count = +counter.innerText.replace(/,/g, '');
-    const increment = target / 300; // slower
+    const increment = target / 1000; // slower
 
     if (count < target) {
       counter.innerText = Math.ceil(count + increment).toLocaleString();
